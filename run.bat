@@ -2,11 +2,6 @@
 setlocal enabledelayedexpansion
 
 
-set error_message=where cmake > NUL 2> NUL
-!error_message!
-if NOT '!ERRORLEVEL!'=='0' goto fail
-
-
 if NOT "%1"=="" (
 	set build_type=%1
 ) else (
@@ -28,8 +23,8 @@ if errorlevel 1 (
 )
 
 
+set error_message=cmake --build . --config %build_type% --target run
 cd %build_dir%
-set error_message=cmake --build . --config %build_type% -- /m
 !error_message!
 if NOT '!ERRORLEVEL!'=='0' goto fail
 

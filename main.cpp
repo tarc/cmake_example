@@ -15,4 +15,7 @@ int main()
         if (timeout > 0)
             std::cout << "Tool " << tool.attribute("Filename").value() << " has timeout " << timeout << "\n";
     }
+
+
+    return 0;
 }
